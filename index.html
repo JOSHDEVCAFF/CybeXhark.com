@@ -43,10 +43,10 @@
 
         <div class="main-content">
             <div class="content">
-                <p class="home-eyebrow">CYBEXHARK / TRAIN WITH PURPOSE</p>
-                <h1>Find your edge.<br><span>Build your strength.</span></h1>
+                <p class="home-eyebrow"><span aria-hidden="true"></span> CYBEXHARK <i aria-hidden="true">/</i> TRAIN WITH PURPOSE</p>
+                <h1>Make every<br><span>rep count.</span></h1>
                 <p class="par">
-                    <b style="color: darkred; font-family: 'Times New Roman', Times, serif; font-size: 20px;">Cybexhark</b> brings together training gear, workout accessories and fitness supplements for your next session. Find your essentials, browse freely, and shop when you are ready.
+                    Gear up with training essentials, workout accessories, and supplements chosen to help you show up ready for your next session.
                 </p>
                 <div class="home-actions">
                     <a class="home-primary-action" href="shop.html">Explore the shop <span aria-hidden="true">&rarr;</span></a>
@@ -59,127 +59,131 @@
                 </div>
             </div>
         
-            <!-- Image Slider -->
-            <div class="slider-container">
-                <div class="slider">
-                    <div class="slider-images">                      
-                        <img src="euphoria.png" alt="Euphoria pre-workout supplement" class="slider-image" fetchpriority="high" decoding="async">
-                        <img src="creatine.jpg" alt="Creatine monohydrate supplement" class="slider-image" loading="lazy" decoding="async">
-                        <img src="Whey Protein.jpg" alt="Whey protein powder" class="slider-image" loading="lazy" decoding="async">
-                        <img src="david.jpg" alt="Cybexhark compression training shirt" class="slider-image" loading="lazy" decoding="async">
-                        <img src="straps.jpg" alt="Lifting wrist straps" class="slider-image" loading="lazy" decoding="async">
-                        <img src="belt.jpg" alt="Black lever lifting belt" class="slider-image" loading="lazy" decoding="async">
-                        <img src="Splay Nylon Speed Rope 10 Foot - Purple _ 10 Foot.jpg" alt="Purple nylon speed rope" class="slider-image" loading="lazy" decoding="async">
-                        <img src="dumbell.jpeg" alt="Pair of training dumbbells" class="slider-image" loading="lazy" decoding="async">
-                    </div>
-                    <button class="arrow left" type="button" aria-label="Previous featured product">&#10094;</button>
-                    <button class="arrow right" type="button" aria-label="Next featured product">&#10095;</button>
+            <div class="hero-showcase" role="group" aria-label="Featured product: Euphoria 2.0 pre-workout">
+                <div class="showcase-orbit showcase-orbit-outer" aria-hidden="true"></div>
+                <div class="showcase-orbit showcase-orbit-inner" aria-hidden="true"></div>
+                <span class="showcase-index" aria-hidden="true">01 / PERFORMANCE</span>
+                <div class="showcase-product">
+                    <img src="euphoria.png" alt="Euphoria 2.0 natural berries pre-workout" class="showcase-image" fetchpriority="high" decoding="async">
                 </div>
+                <div class="showcase-caption">
+                    <span class="showcase-caption-label">FEATURED FUEL</span>
+                    <strong>Euphoria <span>2.0</span></strong>
+                    <span class="showcase-caption-detail">Natural berries · 600 g</span>
+                </div>
+                <a class="showcase-shop-link" href="shop.html" aria-label="Shop performance products">
+                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+                <span class="showcase-glow" aria-hidden="true"></span>
             </div>
         </div>
-        <div class="featured-products">
-            <h2 class="shop-heading">Featured Products</h2>
+        <div class="featured-products" id="featured">
+            <div class="products-heading">
+                <div>
+                    <p class="section-eyebrow">THE STARTING LINEUP</p>
+                    <h2 class="shop-heading">Featured products</h2>
+                    <p class="section-intro">The essentials built for your next training day.</p>
+                </div>
+                <a class="section-link" href="shop.html">Browse the shop <span aria-hidden="true">&rarr;</span></a>
+            </div>
             <div class="product-grid">
                 <!-- Product 1 -->
-                <div class="product-card">
-                    <a onclick="openModal('euphoriaPreWorkout')">
+                <article class="product-card">
                     <img src="euphoria.png" alt="Euphoria Pre-workout" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Euphoria Pre-workout</h3>
                         <p class="price">$59.99</p>
-                        <button class="shop-now" onclick="openModal('euphoriaPreWorkout')">VIEW</button></a>
+                        <button class="shop-now" type="button" onclick="openModal('euphoriaPreWorkout')">View details <span aria-hidden="true">&rarr;</span></button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Product 2 -->
-                <div class="product-card">
-                    <a onclick="openModal('wheyProtein')">
+                <article class="product-card">
                     <img src="Whey Protein.jpg" alt="Whey Protein Powder" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Whey Protein Powder</h3>
                         <p class="price">$55.00</p>
-                        <button class="shop-now" onclick="openModal('wheyProtein')">VIEW</button>
-                    </a>
+                        <button class="shop-now" type="button" onclick="openModal('wheyProtein')">View details <span aria-hidden="true">&rarr;</span></button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Product 3 -->
-                <div class="product-card">
-                    <a onclick="openModal('creatine')">
+                <article class="product-card">
                     <img src="creatine.jpg" alt="Creatine Monohydrate" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Creatine Monohydrate</h3>
                         <p class="price">$69.99</p>
-                        <button class="shop-now" onclick="openModal('creatine')">VIEW</button></a>
+                        <button class="shop-now" type="button" onclick="openModal('creatine')">View details <span aria-hidden="true">&rarr;</span></button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Product 4 -->
-                <div class="product-card">
-                    <a onclick="openModal('jetBlackLeverBelt')">
+                <article class="product-card">
                     <img src="belt.jpg" alt="Jet Black Lever Belt" loading="lazy" decoding="async">
                     <div class="product-info">
                         <h3>Jet Black Lever Belt</h3>
                         <p class="price">$50.99</p>
-                        <button class="shop-now" onclick="openModal('jetBlackLeverBelt')">VIEW</button></a>
+                        <button class="shop-now" type="button" onclick="openModal('jetBlackLeverBelt')">View details <span aria-hidden="true">&rarr;</span></button>
                     </div>
-                </div>  
+                </article>
             </div>
         </div>
                 <div class="other-products">
-                    <h2 class="shop-heading">Other Products</h2>
+                    <div class="products-heading">
+                        <div>
+                            <p class="section-eyebrow">ROUND OUT YOUR SETUP</p>
+                            <h2 class="shop-heading">More training gear</h2>
+                            <p class="section-intro">Little upgrades. Better sessions. Find your next favorite.</p>
+                        </div>
+                    </div>
                     <div class="product-grid">
                         <!-- Product 5 -->
-                        <div class="product-card">
-                            <a onclick="openModal('liftingWristStraps')">
+                        <article class="product-card">
                             <img src="straps.jpg" alt="Black Lifting Wrist Straps" loading="lazy" decoding="async">
                             <div class="product-info">
                                 <h3>Black Lifting Wrist Straps</h3>
                                 <p class="price">$30.99</p>
-                                <button class="shop-now" onclick="openModal('liftingWristStraps')">VIEW</button></a>
+                                <button class="shop-now" type="button" onclick="openModal('liftingWristStraps')">View details <span aria-hidden="true">&rarr;</span></button>
                             </div>
-                        </div>
+                        </article>
                 
                         <!-- Product 6 -->
-                        <div class="product-card">
-                            <a onclick="openModal('dumbbells')">
+                        <article class="product-card">
                             <img src="dumbell.jpeg" alt="Dumbbells (10KG)" loading="lazy" decoding="async">
                             <div class="product-info">
                                 <h3>Dumbbells (10KG)</h3>
                                 <p class="price">$20.99</p>
-                                <button class="shop-now" onclick="openModal('dumbbells')">VIEW</button></a>
+                                <button class="shop-now" type="button" onclick="openModal('dumbbells')">View details <span aria-hidden="true">&rarr;</span></button>
                             </div>
-                        </div>
+                        </article>
                 
                         <!-- Product 7 -->
-                        <div class="product-card">
-                            <a onclick="openModal('nylonSpeedRope')">
+                        <article class="product-card">
                             <img src="Splay Nylon Speed Rope 10 Foot - Purple _ 10 Foot.jpg" alt="Splay Nylon Speed Rope" loading="lazy" decoding="async">
                             <div class="product-info">
                                 <h3>Splay Nylon Speed Rope</h3>
                                 <p class="price">$12.99</p>
-                                <button class="shop-now" onclick="openModal('nylonSpeedRope')">VIEW</button></a>
+                                <button class="shop-now" type="button" onclick="openModal('nylonSpeedRope')">View details <span aria-hidden="true">&rarr;</span></button>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="product-card">
-                            <a onclick="openModal('compressionTshirt')">
+                        <article class="product-card">
                             <img src="david.jpg" alt="Compression T-shirt (black)" loading="lazy" decoding="async">
                             <div class="product-info">
                                 <h3>Compression T-shirt (black)</h3>
                                 <p class="price">$12.99</p>
-                                <button class="shop-now" onclick="openModal('compressionTshirt')">VIEW</button></a>
+                                <button class="shop-now" type="button" onclick="openModal('compressionTshirt')">View details <span aria-hidden="true">&rarr;</span></button>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Modal for product details -->
-        <div class="modal" id="productModal">
+        <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
             <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <button class="close-btn" type="button" onclick="closeModal()" aria-label="Close product details">&times;</button>
                 <div class="modal-info">
                     <img src="" id="modal-img" alt="Product Image" decoding="async">
                     <div>
@@ -193,8 +197,11 @@
     </div>
     <a id="shop" href="shop.html" >SHOP NOW</a>
     <script>
+        let modalTrigger;
+
         function openModal(product) {
-            document.getElementById('productModal').style.display = "block";
+            const modal = document.getElementById('productModal');
+            modalTrigger = document.activeElement;
             // Update the modal content based on the product clicked
             if (product === 'liftingWristStraps') {
                 document.getElementById('modal-title').innerHTML = "Lifting Wrist Straps";
@@ -220,7 +227,7 @@
                 document.getElementById('modal-title').innerHTML = "Euphoria Pre-Workout";
                 document.getElementById('modal-price').innerHTML = "$59.99";
                 document.getElementById('modal-details').innerHTML = "A potent pre-workout supplement designed to boost energy, focus, and endurance.";
-                document.getElementById('modal-img').src = "euphoria.jpg";
+                document.getElementById('modal-img').src = "euphoria.png";
             } else if (product === 'dumbbells') {
                 document.getElementById('modal-title').innerHTML = "Dumbbells (10KG)";
                 document.getElementById('modal-price').innerHTML = "$20.99";
@@ -228,7 +235,7 @@
                 document.getElementById('modal-img').src = "dumbell.jpeg";
             } else if (product === 'compressionTshirt') {
                 document.getElementById('modal-title').innerHTML = "Compression T-shirt";
-                document.getElementById('modal-price').innerHTML = "$25.99";
+                document.getElementById('modal-price').innerHTML = "$12.99";
                 document.getElementById('modal-details').innerHTML = "Compression t-shirt to enhance performance during workouts and aid muscle recovery.";
                 document.getElementById('modal-img').src = "david.jpg";
             } else if (product === 'creatine') {
@@ -237,49 +244,32 @@
                 document.getElementById('modal-details').innerHTML = "Creatine Monohydrate for Boost Muscle Growth and Recovery, Enhance Strength and Power.";
                 document.getElementById('modal-img').src = "creatine.jpg";
         }
+            modal.style.display = "block";
+            modal.setAttribute('aria-hidden', 'false');
+            document.querySelector('.close-btn').focus();
     }
     
         // Close the modal
         function closeModal() {
-            document.getElementById('productModal').style.display = "none";
+            const modal = document.getElementById('productModal');
+            modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true');
+            if (modalTrigger instanceof HTMLElement) {
+                modalTrigger.focus();
+            }
         }
 
-    const images = document.querySelectorAll('.slider-image'); // Select all slider images
-    const imageContainer = document.querySelector('.slider-images'); // The container for the images
-    const nextButton = document.querySelector('.arrow.right'); // Right arrow button
-    const prevButton = document.querySelector('.arrow.left'); // Left arrow button
-    let currentIndex = 0;
+        document.getElementById('productModal').addEventListener('click', event => {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        });
 
-    function updateSliderPosition() {
-        const slideWidth = images[0].clientWidth;
-        imageContainer.style.transition = "transform 0.5s ease-in-out"; // Smooth transition
-        imageContainer.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-    }
-
-    function nextImage() {
-        if (currentIndex < images.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0; // Loop back to the first image
-        }
-        updateSliderPosition();
-    }
-
-    function prevImage() {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = images.length - 1; // Loop back to the last image
-        }
-        updateSliderPosition();
-    }
-
-    // Event listeners for arrow buttons
-    nextButton.addEventListener('click', nextImage);
-    prevButton.addEventListener('click', prevImage);
-
-    // Auto-slide every 7 seconds
-    setInterval(nextImage, 7000);
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && document.getElementById('productModal').getAttribute('aria-hidden') === 'false') {
+                closeModal();
+            }
+        });
 
     </script>
     <script src="cybex-navigation.js" defer></script>
