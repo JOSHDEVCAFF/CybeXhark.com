@@ -61,6 +61,83 @@ const collections = {
 const pageByCollection = { activities: 0, exercises: 0 };
 let projectsPerPage = getProjectsPerPage();
 
+function createPreviewModal() {
+    const modal = document.createElement('div');
+    modal.className = 'project-preview-modal';
+    modal.setAttribute('hidden', 'hidden');
+    modal.setAttribute('aria-hidden', 'true');
+
+    const modalDialog = document.createElement('div');
+    modalDialog.className = 'project-preview-dialog';
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'preview-close';
+    closeButton.setAttribute('aria-label', 'Close project preview');
+    closeButton.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+
+    const previewImage = document.createElement('img');
+    previewImage.className = 'preview-image';
+    previewImage.alt = 'Project preview';
+
+    const previewMeta = document.createElement('div');
+    previewMeta.className = 'preview-meta';
+
+    const previewTitle = document.createElement('h3');
+    previewTitle.className = 'preview-title';
+
+    const previewActions = document.createElement('div');
+    previewActions.className = 'preview-actions';
+
+    const openProjectLink = document.createElement('a');
+    openProjectLink.className = 'preview-link';
+    openProjectLink.target = '_blank';
+    openProjectLink.rel = 'noopener noreferrer';
+    openProjectLink.textContent = 'Open project';
+
+    previewActions.appendChild(openProjectLink);
+    previewMeta.append(previewTitle, previewActions);
+    modalDialog.append(closeButton, previewImage, previewMeta);
+    modal.appendChild(modalDialog);
+
+    closeButton.addEventListener('click', () => {
+        modal.setAttribute('hidden', 'hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('preview-open');
+    });
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.setAttribute('hidden', 'hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('preview-open');
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hasAttribute('hidden')) {
+            modal.setAttribute('hidden', 'hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('preview-open');
+        }
+    });
+
+    return { modal, previewImage, previewTitle, openProjectLink };
+}
+
+const previewModal = createPreviewModal();
+
+function openProjectPreview(project, title) {
+    previewModal.previewImage.src = project.image;
+    previewModal.previewImage.alt = title;
+    previewModal.previewTitle.textContent = title;
+    previewModal.openProjectLink.href = project.driveUrl || '#';
+    previewModal.openProjectLink.hidden = !project.driveUrl;
+    previewModal.modal.removeAttribute('hidden');
+    previewModal.modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('preview-open');
+}
+
 function renderCollection(name) {
     const projects = collections[name];
     const grid = document.getElementById(`${name}Grid`);
@@ -79,6 +156,21 @@ function renderCollection(name) {
         image.alt = `${name === 'activities' ? 'Activity' : 'Exercise'} project preview ${start + index + 1}`;
         image.loading = 'lazy';
         image.decoding = 'async';
+        image.className = 'project-card-image';
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `Preview ${name === 'activities' ? 'activity' : 'exercise'} ${start + index + 1}`);
+
+        image.addEventListener('click', () => {
+            openProjectPreview(project, `${name === 'activities' ? 'Activity' : 'Exercise'} ${start + index + 1}`);
+        });
+
+        image.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openProjectPreview(project, `${name === 'activities' ? 'Activity' : 'Exercise'} ${start + index + 1}`);
+            }
+        });
 
         const actions = document.createElement('div');
         actions.className = 'project-card-actions';
@@ -137,4 +229,5 @@ window.addEventListener('resize', () => {
     Object.keys(collections).forEach(renderCollection);
 });
 
+document.body.appendChild(previewModal.modal);
 Object.keys(collections).forEach(renderCollection);
