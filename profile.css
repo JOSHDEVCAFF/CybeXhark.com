@@ -1537,11 +1537,11 @@ body.dark .hero-card {
 
 .social-card {
   display: inline-grid;
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 50px;
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   color: var(--accent);
