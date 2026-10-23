@@ -1541,7 +1541,7 @@ body.dark .hero-card {
   height: 40px;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 50px;
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   color: var(--accent);
