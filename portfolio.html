@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse project activities and exercises.">
+    <link rel="icon" href="CybexIcon.png" type="image/png">
+    <title>Project Portfolio | Cybexhark</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+    <script src="portfolio.js" defer></script>
+    <script src="cybex-navigation.js" defer></script>
+</head>
+<body>
+    <header class="responsive-site-header">
+        <nav class="responsive-site-nav" aria-label="Main navigation">
+            <a class="dashboard-brand" href="index.html" aria-label="Cybexhark home">
+                <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+            </a>
+            <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            <div class="site-menu" id="site-menu" aria-label="Site pages">
+                <button class="site-menu-close" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <a class="dashboard-brand site-menu-brand" href="index.html" aria-label="Cybexhark home">
+                    <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                    <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+                </a>
+                <h2 class="site-menu-title">Menu</h2>
+                <ul class="site-menu-links">
+                    <li><a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i>HOME</a></li><li><a href="about.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>ABOUT</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i>SERVICES</a></li><li><a href="shop.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>SHOP</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i>CONTACT</a></li><li><a href="faq.html"><i class="fa-solid fa-circle-question" aria-hidden="true"></i>FAQ</a></li>
+                    <li><a href="organizational-chart.html"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>ORG CHART</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i>PROFILE</a></li>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>DASHBOARD</a></li>
+                </ul>
+            </div>
+            <button class="site-menu-backdrop" type="button" aria-label="Close navigation menu" hidden></button>
+        </nav>
+    </header>
+    <main class="portfolio-main">
+        <header class="portfolio-intro">
+            <p class="eyebrow">PROJECT SHOWCASE</p>
+            <h1>Activities <span>&amp;</span> Exercises</h1>
+            <p>I Introduce you to my Activities and Exercises here.</p>
+        </header>
+
+        <section class="portfolio-section" aria-labelledby="activities-heading">
+            <div class="section-heading">
+                <div><p class="eyebrow">01 / COLLECTION</p><h2 id="activities-heading">Activities</h2></div>
+                <p>Class Activities</p>
+            </div>
+            <div class="project-grid" id="activitiesGrid"></div>
+            <p class="empty-message" id="activitiesEmpty" hidden>No activities have been added yet.</p>
+            <nav class="pagination" aria-label="Activities pages">
+                <button type="button" data-collection="activities" data-direction="-1">Previous</button>
+                <span id="activitiesPage" aria-live="polite"></span>
+                <button type="button" data-collection="activities" data-direction="1">Next</button>
+            </nav>
+        </section>
+
+        <section class="portfolio-section" aria-labelledby="exercises-heading">
+            <div class="section-heading">
+                <div><p class="eyebrow">02 / COLLECTION</p><h2 id="exercises-heading">Exercises</h2></div>
+                <p>Class practice and exercises</p>
+            </div>
+            <div class="project-grid" id="exercisesGrid">
+                <article class="project-card">
+                    <p class="eyebrow">EXERCISE</p>
+                    <h3>Personal Profile Page</h3>
+                    <p>Create a simple HTML page introducing yourself, with a heading, a short bio, and a list of interests.</p>
+                </article>
+            </div>
+            <p class="empty-message" id="exercisesEmpty" hidden>Add exercise projects in <code>portfolio.js</code>.</p>
+            <nav class="pagination" aria-label="Exercises pages">
+                <button type="button" data-collection="exercises" data-direction="-1" disabled>Previous</button>
+                <span id="exercisesPage" aria-live="polite">1 project</span>
+                <button type="button" data-collection="exercises" data-direction="1" disabled>Next</button>
+            </nav>
+            
+        </section>
+    </main>
+    <footer>&copy; 2026 Cybexhark. Project portfolio.</footer>
+</body>
+</html>

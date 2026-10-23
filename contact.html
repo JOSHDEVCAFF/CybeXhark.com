@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Cybexhark for product, order, or account support.">
+    <link rel="icon" href="CybexIcon.png" type="image/x-icon">
+    <title>Contact Us | Cybexhark</title>
+    <style>
+        :root { color-scheme: dark; --muted: #a6abb5; --accent: #ef3434; --line: rgba(255,255,255,.1); }
+        * { box-sizing: border-box; }
+        body { min-width: 320px; margin: 0; color: #f7f7f8; background: linear-gradient(180deg, rgba(8,9,11,.84), #0b0d10 760px), url('gym.jpg') center top / cover fixed; font-family: Inter, "Segoe UI", Arial, sans-serif; }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(8,8,8,.97),
+                    rgba(8,8,8,.88)),
+                url('gym.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle,
+                rgba(150, 0, 20, 0.473),
+                transparent 70%);
+            top: 10%;
+            left: -250px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        a { color: inherit; text-decoration: none; }
+        .site-header { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: rgba(10,11,13,.91); backdrop-filter: blur(14px); }
+        .nav { width: min(1160px, calc(100% - 40px)); min-height: 72px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: -.07em; }
+        .brand span { color: var(--accent); }
+        .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 25px; margin: 0; padding: 0; list-style: none; }
+        .nav-links a { color: #c7cad0; font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+        .nav-links a:hover, .nav-links a[aria-current="page"] { color: #ff6868; }
+        main { width: min(1080px, calc(100% - 40px)); margin: auto; padding: 70px 0 84px; }
+        .eyebrow { margin: 0 0 12px; color: #ff6666; font-size: .72rem; font-weight: 850; letter-spacing: .2em; }
+        h1, h2, p { margin-top: 0; }
+        h1 { margin-bottom: 12px; font-size: clamp(2.7rem, 7vw, 4.7rem); letter-spacing: -.075em; }
+        .intro { max-width: 650px; margin-bottom: 36px; color: #c2c6ce; line-height: 1.75; }
+        .contact-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 18px; }
+        .contact-card { padding: clamp(23px, 4vw, 34px); border: 1px solid var(--line); border-radius: 17px; background: linear-gradient(145deg, rgba(23,26,31,.97), rgba(16,18,22,.97)); }
+        .contact-card h2 { margin-bottom: 9px; font-size: 1.3rem; }
+        .contact-card > p { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+        .contact-details { display: grid; gap: 12px; margin: 25px 0 0; padding: 0; list-style: none; }
+        .contact-details li { display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: center; gap: 12px; color: #daddE3; font-size: .9rem; }
+        .contact-icon { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(239,52,52,.27); border-radius: 10px; background: rgba(239,52,52,.1); color: #ff6868; }
+        .contact-details small { display: block; margin-bottom: 3px; color: #858c98; font-size: .67rem; font-weight: 800; letter-spacing: .1em; }
+        .contact-details a:hover { color: #ff7777; }
+        form { display: grid; gap: 15px; margin-top: 20px; }
+        .field { display: grid; gap: 7px; }
+        label { color: #d8dbe1; font-size: .78rem; font-weight: 750; }
+        input, textarea { width: 100%; min-height: 45px; padding: 12px 13px; border: 1px solid rgba(255,255,255,.13); border-radius: 9px; background: #0e1013; color: #fff; font: inherit; font-size: .9rem; }
+        textarea { min-height: 130px; resize: vertical; }
+        input:focus, textarea:focus { border-color: var(--accent); outline: 3px solid rgba(239,52,52,.17); }
+        button { min-height: 48px; padding: 0 18px; border: 0; border-radius: 9px; background: var(--accent); color: #fff; cursor: pointer; font: inherit; font-size: .88rem; font-weight: 850; }
+        button:hover { background: #d62929; }
+        .form-note, #contactStatus { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.6; }
+        #contactStatus:not(:empty) { color: #ffaaaa; }
+        footer { padding: 23px 20px; border-top: 1px solid var(--line); color: #969ca7; text-align: center; font-size: .8rem; }
+        @media (max-width: 700px) { .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; gap: 14px; } .nav-links { gap: 11px 18px; } main { padding-top: 54px; } .contact-grid { grid-template-columns: 1fr; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+</head>
+<body>
+    <header class="responsive-site-header">
+        <nav class="responsive-site-nav" aria-label="Main navigation">
+            <a class="dashboard-brand" href="index.html" aria-label="Cybexhark home">
+                <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+            </a>
+            <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            <div class="site-menu" id="site-menu" aria-label="Site pages">
+                <button class="site-menu-close" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <a class="dashboard-brand site-menu-brand" href="index.html" aria-label="Cybexhark home">
+                    <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                    <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+                </a>
+                <h2 class="site-menu-title">Menu</h2>
+                <ul class="site-menu-links">
+                    <li><a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i>HOME</a></li><li><a href="about.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>ABOUT</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i>SERVICES</a></li><li><a href="shop.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>SHOP</a></li>
+                    <li><a href="contact.html" aria-current="page"><i class="fa-solid fa-envelope" aria-hidden="true"></i>CONTACT</a></li><li><a href="faq.html"><i class="fa-solid fa-circle-question" aria-hidden="true"></i>FAQ</a></li><li><a href="organizational-chart.html"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>ORG CHART</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i>PROFILE</a></li><li><a href="dashboard.html"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>ACCOUNT</a></li>
+                </ul>
+            </div>
+            <button class="site-menu-backdrop" type="button" aria-label="Close navigation menu" hidden></button>
+        </nav>
+    </header>
+    <main>
+        <p class="eyebrow">WE'RE HERE TO HELP</p>
+        <h1>Let's talk <span>training.</span></h1>
+        <p class="intro">Questions about a product, an order, or your account? Send us a message and your email app will open with your enquiry ready to send.</p>
+        <section class="contact-grid">
+            <article class="contact-card">
+                <h2>Get in touch</h2>
+                <p>Choose the contact method that works best for you. We look forward to hearing from you.</p>
+                <ul class="contact-details">
+                    <li><span class="contact-icon" aria-hidden="true">&#9993;</span><span><small>EMAIL</small><a href="mailto:joshscz123@gmail.com">joshscz123@gmail.com</a></span></li>
+                    <li><span class="contact-icon" aria-hidden="true">&#9742;</span><span><small>PHONE</small><a href="tel:09969961945">099-6996-1945</a></span></li>
+                    <li><span class="contact-icon" aria-hidden="true">&#9678;</span><span><small>LOCATION</small>Mandaue City, Cebu, Philippines</span></li>
+                </ul>
+            </article>
+            <article class="contact-card">
+                <h2>Send us a message</h2>
+                <p>Complete the form and continue in your default email application.</p>
+                <form id="contact-form">
+                    <div class="field"><label for="contact-name">Your name</label><input id="contact-name" name="name" autocomplete="name" required></div>
+                    <div class="field"><label for="contact-email">Email address</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+                    <div class="field"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" placeholder="Product, order, account..." required></div>
+                    <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" required></textarea></div>
+                    <button type="submit">Continue to email <span aria-hidden="true">&rarr;</span></button>
+                    <p class="form-note">This form does not send or store messages on this website. Your email app will open so you can review and send the message.</p>
+                    <p id="contactStatus" role="status" aria-live="polite"></p>
+                </form>
+            </article>
+        </section>
+    </main>
+    <footer>&copy; 2025 Cybexhark Fitness &amp; Supplements. Train with purpose.</footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', event => {
+            event.preventDefault();
+            const form = new FormData(event.currentTarget);
+            const subject = `[Cybexhark] ${form.get('subject')}`;
+            const body = `Name: ${form.get('name')}\nEmail: ${form.get('email')}\n\n${form.get('message')}`;
+            document.getElementById('contactStatus').textContent = 'Opening your email application. Review the message there and press Send to contact us.';
+            window.location.href = `mailto:joshscz123@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+    </script>
+    <script src="cybex-navigation.js" defer></script>
+    <script src="cybex-motion.js" defer></script>
+</body>
+</html>

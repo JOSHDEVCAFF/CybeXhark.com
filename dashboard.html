@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CybexIcon.png" type="image/png">
+    <title>Dashboard | Cybexhark</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="chart.umd.js" defer></script>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+    <script>
+        if (!localStorage.getItem('loggedInUser')) {
+            window.location.replace('login.html?returnTo=dashboard.html');
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <a class="dashboard-brand" href="index.html" aria-label="Cybexhark home">
+            <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+            <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+        </a>
+        <h2 class="sidebar-section-title">Dashboard</h2>
+        <ul>
+            <li class="admin-only"><button type="button" class="dashboard-nav is-active" data-view="overview"><i class="fa-solid fa-chart-line"></i> Overview</button></li>
+            <li class="admin-only"><button type="button" class="dashboard-nav" data-view="customers"><i class="fa-solid fa-users"></i> Customers</button></li>
+            <li class="admin-only"><button type="button" class="dashboard-nav" data-view="reports"><i class="fa-solid fa-file-lines"></i> Reports</button></li>
+            <li class="customer-only"><button type="button" class="dashboard-nav" data-view="customer-home"><i class="fa-solid fa-house"></i> Dashboard</button></li>
+            <li class="customer-only"><button type="button" class="dashboard-nav" data-view="orders"><i class="fa-solid fa-box"></i> My Orders</button></li>
+            <li><button type="button" class="dashboard-nav" data-view="settings"><i class="fa-solid fa-sliders"></i> Settings</button></li>
+            <li><a href="index.html"><button type="button"><i class="fa-solid fa-house"></i> Home</button></a></li>
+            <li><a href="profile.html"><button type="button"><i class="fa-solid fa-user"></i> Profile</button></a></li>
+            <li><button type="button" id="accountSettingsLink"><i class="fa-solid fa-user"></i> Account</button></li>
+            <li><button type="button" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button></li>
+        </ul>
+        <div class="sidebar-account" id="sidebarAccount">
+            <img id="sidebarAvatar" src="user.png" alt="">
+            <span><strong id="sidebarName">Account</strong><small id="sidebarRole">Member</small></span>
+        </div>
+    </div>
+
+    <section class="customer-dashboard" id="customerDashboard" aria-labelledby="customerDashboardTitle" hidden>
+        <p class="customer-eyebrow">YOUR CYBEXHARK ACCOUNT</p>
+        <h1 id="customerDashboardTitle">Welcome back</h1>
+        <p class="customer-intro">Your account is ready. Browse the store or continue to your cart whenever you are.</p>
+        <div class="customer-actions">
+            <a href="shop.html" class="customer-action customer-action-primary">
+                <span class="customer-action-icon" aria-hidden="true"><i class="fa-solid fa-bag-shopping"></i></span>
+                <span><strong>Browse the shop</strong><small>Explore equipment and supplements</small></span>
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="checkout.html" class="customer-action">
+                <span class="customer-action-icon" aria-hidden="true"><i class="fa-solid fa-cart-shopping"></i></span>
+                <span><strong>View your cart</strong><small>Review items before checkout</small></span>
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="portfolio.html" class="customer-action">
+                <span class="customer-action-icon" aria-hidden="true"><i class="fa-solid fa-images"></i></span>
+                <span><strong>Project portfolio</strong><small>Browse activities and exercises</small></span>
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+        <section class="dashboard-panel customer-orders-panel" aria-labelledby="customerOrdersHeading">
+            <div class="panel-heading">
+                <div><h2 id="customerOrdersHeading">Recent orders</h2><p>Your purchases, dates, and current order status.</p></div>
+                <button type="button" class="secondary-button" data-view="orders">View all orders <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="table-scroll">
+                <table class="data-table customer-orders-table">
+                    <thead><tr><th>Order</th><th>Items</th><th>Purchased</th><th>Total</th><th>Status</th></tr></thead>
+                    <tbody id="customerRecentOrdersBody"></tbody>
+                </table>
+            </div>
+            <p class="table-empty" id="customerRecentOrdersEmpty" hidden>Your order history will appear here after you complete a purchase.</p>
+        </section>
+        <div class="customer-note">
+            <span class="customer-status-dot" aria-hidden="true"></span>
+            <div><strong>Account active</strong><p>Manage your profile from Account in the sidebar.</p></div>
+        </div>
+    </section>
+
+    <section class="admin-view customer-only" id="ordersView" hidden>
+        <header class="dashboard-page-heading">
+            <div><p class="dashboard-eyebrow">YOUR PURCHASES</p><h1>My orders</h1><p>Track your purchases and review order details.</p></div>
+            <a href="shop.html" class="primary-button"><i class="fa-solid fa-bag-shopping"></i> Continue shopping</a>
+        </header>
+        <section class="dashboard-panel">
+            <div class="table-scroll">
+                <table class="data-table customer-orders-table">
+                    <thead><tr><th>Order</th><th>Items</th><th>Purchased</th><th>Total</th><th>Status</th></tr></thead>
+                    <tbody id="customerAllOrdersBody"></tbody>
+                </table>
+            </div>
+            <p class="table-empty" id="customerAllOrdersEmpty" hidden>Your order history will appear here after you complete a purchase.</p>
+        </section>
+    </section>
+
+    <div class="main-content">
+        <header class="dashboard-page-heading">
+            <div><p class="dashboard-eyebrow">CYBEXHARK / ADMIN</p><h1>Overview</h1><p>Store performance at a glance.</p></div>
+            <span class="sample-data-badge"><i class="fa-solid fa-circle-info"></i> Sample dashboard data</span>
+        </header>
+        <div class="dashboard-header">
+            <div class="card" style="background: linear-gradient(135deg, #ff0000, #d40000); color: white; box-shadow: 0 4px 15px rgba(212, 0, 0, 0.7);">
+                <h3>Products Sold</h3>
+                <p>4565</p>
+                <p class="card-date">July 29, 2025</p>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #c80000, #ad1919); color: white; box-shadow: 0 4px 15px rgba(223, 16, 16, 0.7);">
+                <h3>Net Profit</h3>
+                <p>$8541</p>
+                <p class="card-date">August 9, 2025</p>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #a50505, #770202); color: white; box-shadow: 0 4px 15px rgba(83, 3, 3, 0.7);">
+                <h3>New Orders</h3>
+                <p>320</p>
+                <p class="card-date">September 11, 2025</p>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #990e0e, #351212); color: white; box-shadow: 0 4px 15px rgba(90, 2, 2, 0.7);">
+                <h3>Active Users</h3>
+                <p>1400</p>
+                <p class="card-date">October 28, 2025</p>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #641616, #640c0c); color: white; box-shadow: 0 4px 15px rgba(83, 2, 2, 0.7);">
+                <h3>Overall Sales</h3>
+                <p>$15,750</p>
+                <p class="card-date">December 25, 2025</p>
+            </div>
+        </div>
+        <div class="charts-container">
+            <div class="chart-container">
+                <h3>Product Sales</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Order Summary</h3>
+                <canvas id="orderChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Revenue Growth</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Customer Engagement</h3>
+                <canvas id="customerChart"></canvas>
+            </div>
+        </div> 
+
+        <div class="orders-table">
+            <h3>Recent Orders</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Time (date&time)</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                </tr>
+                <tr class="in-transit" id="order1">
+                    <td>1</td>
+                    <td><img src="creatine.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Creatine Monohydrate</td>
+                    <td>id0000001</td>
+                    <td>20</td>
+                    <td>$69.99</td>
+                    <td>27-08-2025 / 01:22:12</td>
+                    <td>Telacas Cirilo</td>
+                    <td >In Transit</td>
+                </tr>
+                <tr class="delivered" id="order2">
+                    <td>2</td>
+                    <td><img src="Whey Protein.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Whey Protein</td>
+                    <td>id0000002</td>
+                    <td>12</td>
+                    <td>$55.00</td>
+                    <td>25-08-2025 / 21:12:56</td>
+                    <td>Arvin Guinoo</td>
+                    <td style>Delivered</td>
+                </tr>
+                <tr class="shipped" id="order3">
+                    <td>3</td>
+                    <td><img src="david.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Compression T-shirt</td>
+                    <td>id0000020</td>
+                    <td>100</td>
+                    <td>$25.99</td>
+                    <td>25-08-2025 / 02:12:56</td>
+                    <td>Josh Mendoza</td>
+                    <td>Shipped</td>
+                </tr>
+                <tr class="delivered" id="order4">
+                    <td>4</td>
+                    <td><img src="euphoria.png" width="50" style="border-radius: 20px;"></td>
+                    <td>Euphoria Pre-workout</td>
+                    <td>id000911</td>
+                    <td>27</td>
+                    <td>$59.99</td>
+                    <td>25-08-2025 / 02:12:56</td>
+                    <td>Horace Angana</td>
+                    <td>Delivered</td>
+                </tr>
+                <tr class="in-transit" id="order5">
+                    <td>5</td>
+                    <td><img src="creatine.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Creatine Monohydrate</td>
+                    <td>id69</td>
+                    <td>25</td>
+                    <td>$69.99</td>
+                    <td>23-04-2025 / 03:00:36</td>
+                    <td>Josh Mendoza</td>
+                    <td>In Transit</td>
+                </tr>
+                <tr class="in-transit" id="order6">
+                    <td>6</td>
+                    <td><img src="belt.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Jet Black Lever Belt</td>
+                    <td>id777</td>
+                    <td>2</td>
+                    <td>$50.99</td>
+                    <td>23-04-2025 / 03:02:10</td>
+                    <td>Josh Mendoza</td>
+                    <td>In Transit</td>
+                </tr>
+                <tr class="in-transit" id="order7">
+                    <td>7</td>
+                    <td><img src="david.jpg" width="50" style="border-radius: 20px;"></td>
+                    <td>Compression T-shirt</td>
+                    <td>id0000020</td>
+                    <td>100</td>
+                    <td>$25.99</td>
+                    <td>23-04-2025 / 03:04:22</td>
+                    <td>Josh Mendoza</td>
+                    <td>In Transit</td>
+                </tr>
+            </table>
+        
+        </div>
+        <div class="form-container">
+            <div class="order-overview">
+                <h3>Order Overview</h3>
+                <p>Total Revenue: <span>$56,800</span></p>
+                <p>Online Orders: 50% <progress value="50" max="100"></progress></p>
+                <p>Offline Orders: 30% <progress value="30" max="100"></progress></p>
+                <p>Cash on Delivery: 20% <progress value="20" max="100"></progress></p>
+            </div>
+            <div class="todo-list">
+                <h3>To-Do</h3>
+                <ul>
+                    <li><input type="checkbox" checked> Review top-selling inventory</li>
+                    <li><input type="checkbox"> Confirm delivery schedule</li>
+                    <li><input type="checkbox"> Follow up on pending orders</li>
+                    <li><input type="checkbox"> Prepare campaign launch</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="admin-view" id="customersView" hidden>
+        <header class="dashboard-page-heading">
+            <div><p class="dashboard-eyebrow">STORE MANAGEMENT</p><h1>Customers</h1><p>Registered customer accounts from this browser.</p></div>
+            <span class="sample-data-badge"><i class="fa-solid fa-database"></i> Local account data</span>
+        </header>
+        <div class="report-metrics" id="customerMetrics"></div>
+        <section class="dashboard-panel">
+            <div class="panel-heading">
+                <div><h2>Customer directory</h2><p>Customer details are read from registered accounts.</p></div>
+                <label class="search-field"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="customerSearch" type="search" placeholder="Search customers" aria-label="Search customers"></label>
+            </div>
+            <div class="table-scroll">
+                <table class="data-table">
+                    <thead><tr><th>Customer</th><th>Username</th><th>Email</th><th>Account</th></tr></thead>
+                    <tbody id="customersTableBody"></tbody>
+                </table>
+            </div>
+            <p class="table-empty" id="customersEmpty" hidden>No customers match your search.</p>
+        </section>
+    </section>
+
+    <section class="admin-view" id="reportsView" hidden>
+        <header class="dashboard-page-heading">
+            <div><p class="dashboard-eyebrow">STORE MANAGEMENT</p><h1>Reports</h1><p>Review sample order performance and export the visible order list.</p></div>
+            <button type="button" class="primary-button" id="exportOrdersBtn"><i class="fa-solid fa-download"></i> Export orders CSV</button>
+        </header>
+        <div class="report-metrics" id="reportMetrics"></div>
+        <section class="dashboard-panel">
+            <div class="panel-heading">
+                <div><h2>Order report</h2><p>Based on the sample orders shown in Overview.</p></div>
+                <label class="filter-field">Status
+                    <select id="reportStatusFilter">
+                        <option value="all">All statuses</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="in transit">In Transit</option>
+                    </select>
+                </label>
+            </div>
+            <div class="table-scroll">
+                <table class="data-table">
+                    <thead><tr><th>Order</th><th>Product</th><th>Quantity</th><th>Unit price</th><th>Customer</th><th>Status</th></tr></thead>
+                    <tbody id="reportsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <section class="admin-view" id="settingsView" hidden>
+        <header class="dashboard-page-heading">
+            <div><p class="dashboard-eyebrow">PREFERENCES</p><h1>Settings</h1><p>Personalize your dashboard and choose the updates you want to receive.</p></div>
+        </header>
+        <section class="dashboard-panel settings-panel">
+            <div class="panel-heading"><div><h2>Appearance</h2><p>Personalize the dashboard on this device.</p></div></div>
+            <label class="settings-control" for="themeSelector"><span><strong>Color theme</strong><small>Choose the dashboard color scheme.</small></span>
+                <select id="themeSelector"><option value="dark">Dark (default)</option><option value="light">Light</option></select>
+            </label>
+            <div class="panel-heading settings-subheading"><div><h2>Notifications</h2><p>Notification preferences are saved in this browser.</p></div></div>
+            <label class="settings-toggle" for="emailNotifications"><span><strong>Email notifications</strong><small>Order and account updates</small></span><input type="checkbox" id="emailNotifications"></label>
+            <label class="settings-toggle" for="smsNotifications"><span><strong>SMS notifications</strong><small>Important delivery updates</small></span><input type="checkbox" id="smsNotifications"></label>
+            <label class="settings-toggle" for="newproductNotifications"><span><strong>Product notifications</strong><small>New product and promotion updates</small></span><input type="checkbox" id="newproductNotifications"></label>
+            <div class="settings-actions"><p id="settingsSaveMessage" role="status" aria-live="polite"></p><button type="button" class="primary-button" id="saveSettingsBtn">Save preferences</button></div>
+        </section>
+    </section>
+    <section class="account-settings-section admin-view" id="accountSettingsSection" hidden>
+        <div class="profile-section">
+            <div id="coverPhoto" class="profile-cover"></div>
+            <div class="profile-identity">
+                <img id="profilePicture" src="user.png" alt="Profile image" class="profile-avatar">
+                <div>
+                    <h2 id="profileName">Account</h2>
+                    <p id="profileRole">Member</p>
+                </div>
+            </div>
+            <div class="profile-upload">
+                <label for="uploadProfilePicture" class="custom-file-label">Upload profile photo</label>
+                <input type="file" id="uploadProfilePicture" accept="image/*" class="custom-file-input">
+                <label for="uploadCoverPhoto" class="custom-file-label">Upload cover photo</label>
+                <input type="file" id="uploadCoverPhoto" accept="image/*" class="custom-file-input">
+            </div>
+        </div>
+        <div class="account-section">
+            <header class="account-section-heading">
+                <div><p class="dashboard-eyebrow">PROFILE & SECURITY</p><h2>Account settings</h2></div>
+                <button type="button" class="secondary-button" id="returnToDashboardBtn"><i class="fa-solid fa-arrow-left"></i> Back to dashboard</button>
+            </header>
+            <div class="account-settings-item">
+                <label for="currentUsername">Username</label>
+                <div class="account-input-row"><input type="text" id="currentUsername" readonly><button type="button" id="changeUsernameBtn">Edit</button></div>
+            </div>
+            <div class="account-settings-item">
+                <label for="currentEmail">Email address</label>
+                <div class="account-input-row"><input type="email" id="currentEmail" readonly><button type="button" id="changeEmailBtn">Edit</button></div>
+            </div>
+            <div class="account-settings-item">
+                <label for="currentPassword">Password</label>
+                <div class="account-input-row"><input type="password" id="currentPassword" value="••••••••" readonly><button type="button" id="accountChangePasswordBtn">Change password</button></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modals for Changing Information -->
+    <div class="modal" id="changeModal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modalTitle">Change Information</h3>
+            <div id="currentPasswordContainer" style="display: none;">
+                <label for="currentPasswordInput" style="float: left; font-weight: bold;">Current Password:</label>
+                <input type="password" id="currentPasswordInput" placeholder="Enter current password" style="text-align: left;">
+                <label for="currentPasswordInput" style="float: left; font-weight: bold;">New Password:</label>
+            </div>
+            <input type="text" id="modalInput" placeholder="Enter new value" style="text-align: left;" autocomplete="off">
+            <button id="saveModalBtn">Save</button>
+            <button id="closeModalBtn">Cancel</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Copyright - Cybexhark</p>
+    </div>
+    <script src="dashboard.js" defer></script>
+    
+</body>
+</html>

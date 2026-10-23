@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CybexIcon.png">
+    <title>Login - Cybexhark</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            background: linear-gradient(Darkred,rgba(0, 0, 0, 0.932));
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+         body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(8,8,8,.97),
+                    rgba(8,8,8,.88)),
+                url('gym.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle,
+                rgba(150,0,20,.16),
+                transparent 70%);
+            top: 10%;
+            left: -250px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            background: linear-gradient(Darkred,black);
+            color: white;
+            border-radius: 20px;
+            padding-right: 40px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.829);
+        }
+        .container:hover {
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.616);
+            transform: translateY(-5px); 
+        }
+
+        h2 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: rgba(233, 110, 110, 0.658);
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #c400005d;
+            background-color: #ffdfdf;
+            border-radius: 5px;
+            width: 94%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        .center-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .center-text a {
+            color: darkred;
+            text-decoration: none;
+        }
+
+        .center-text a:hover {
+            color: rgba(255, 255, 255, 0.445);
+        }
+
+        .icons {
+            text-align: center;
+            word-spacing: 30px;
+        }
+
+        p {
+            text-align: center;
+        }
+        #logo{
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('gym.jpg');
+            height: 45px;
+            font-size: 50px;
+            border-radius: 10px;
+        }
+s
+        .recent-accounts {
+            margin-bottom: 20px;
+        }
+
+        .recent-accounts h3 {
+            color: white;
+            text-align: center;
+        }
+
+        .account {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .account p {
+            margin: 0;
+            color: white;
+        }
+
+        /* Responsive authentication page styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            height: auto;
+            padding: 32px 18px;
+            color: #f5f5f5;
+            background:
+                linear-gradient(135deg, rgba(8, 9, 11, 0.96), rgba(35, 10, 12, 0.9)),
+                url("gym.jpg") center / cover fixed;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .container {
+            width: min(100%, 430px);
+            padding: clamp(24px, 6vw, 38px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            background: rgba(18, 19, 22, 0.94);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(14px);
+        }
+
+        .container:hover {
+            transform: none;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        #logo {
+            display: flex;
+            min-height: 58px;
+            height: auto !important;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 22px;
+            border-radius: 9px;
+            background:
+                linear-gradient(90deg, rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.4)),
+                url("gym.jpg") center 45% / cover;
+            font-size: clamp(28px, 8vw, 38px);
+            letter-spacing: -0.06em;
+        }
+
+        .container > hr {
+            width: 100%;
+            margin: 0 0 18px;
+            border: 0;
+            border-top: 1px solid rgba(239, 52, 52, 0.65);
+        }
+
+        .container > p:first-of-type {
+            margin-bottom: 24px;
+            color: #c4c7cc !important;
+            font-size: 14px !important;
+        }
+
+        .recent-accounts {
+            margin-bottom: 22px;
+        }
+
+        .recent-accounts h3 {
+            margin-bottom: 12px;
+            color: #f4f4f4;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        #recentAccountsContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .account {
+            min-width: 0;
+            margin: 0;
+            padding: 9px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .account:hover {
+            border-color: rgba(239, 52, 52, 0.65);
+            background: rgba(239, 52, 52, 0.1);
+        }
+
+        .account img {
+            flex: 0 0 38px;
+            width: 38px;
+            height: 38px;
+            object-fit: cover;
+        }
+
+        .account p {
+            overflow: hidden;
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        form {
+            gap: 9px;
+        }
+
+        label {
+            margin-top: 6px;
+            color: #e5a0a0;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            min-height: 46px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            outline: none;
+            background: #24262b;
+            color: #fff;
+            font: inherit;
+            font-size: 15px;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #ef3434;
+            box-shadow: 0 0 0 3px rgba(239, 52, 52, 0.16);
+        }
+
+        form br {
+            display: none;
+        }
+
+        button {
+            min-height: 48px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background: #e42e34;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            background: #c82028;
+            color: #fff;
+        }
+
+        .center-text {
+            margin: 22px 0 18px;
+            color: #c4c7cc;
+            line-height: 1.6;
+        }
+
+        .center-text a {
+            color: #ff6969;
+            font-weight: 700;
+        }
+
+        .center-text a:hover {
+            color: #fff;
+        }
+
+        .container > p:nth-of-type(3) {
+            margin-bottom: 12px;
+            color: #9da0a6;
+            font-size: 12px;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            word-spacing: normal;
+        }
+
+        .icons a {
+            display: grid;
+            width: 40px;
+            height: 40px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        .icons a:hover {
+            transform: translateY(-2px);
+            background: rgba(239, 52, 52, 0.2);
+        }
+
+        .icons img {
+            display: block;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .auth-message {
+            margin: 0 0 12px;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #e5e7eb;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .auth-message[data-state="error"] {
+            border-color: rgba(255, 105, 105, 0.5);
+            background: rgba(239, 52, 52, 0.12);
+            color: #ffb4b4;
+        }
+
+        .auth-message[data-state="success"] {
+            border-color: rgba(74, 222, 128, 0.4);
+            background: rgba(34, 197, 94, 0.1);
+            color: #bbf7d0;
+        }
+
+        .demo-admin-notice {
+            margin: 0 0 16px;
+            padding: 11px 12px;
+            border: 1px solid rgba(239, 52, 52, 0.38);
+            border-radius: 8px;
+            background: rgba(239, 52, 52, 0.09);
+            color: #f0c7c7;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        .demo-admin-notice strong { color: #fff; }
+
+        @media (max-width: 380px) {
+            body {
+                padding: 18px 12px;
+            }
+
+            .container {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+</head>
+<body class="auth-page">
+    <div class="container">
+        <a class="dashboard-brand auth-brand" href="index.html" aria-label="Cybexhark home">
+            <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+            <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+        </a>
+        <hr style="2px solid darkred; width: 100%;">
+        <p style="text-align: center; color: rgba(243, 212, 212, 0.712); font-size: 20px; font-size: 12px;">Login to your account</p>
+        <div class="demo-admin-notice">
+            School demo admin: <strong>Joshua123</strong> / <strong>Joshua12345</strong><br>
+            Demo credentials are visible in this static website. Do not use them for real accounts or sensitive data.
+        </div>
+        
+        <div class="recent-accounts">
+            <h3>Recent Accounts</h3>
+            <div id="recentAccountsContainer"></div>
+        </div>
+
+        <form id="loginForm">
+            <p class="auth-message" id="loginMessage" role="status" aria-live="polite" hidden></p>
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" required>
+            <br>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+            <br>
+
+            <button type="submit" id="loginButton">Login</button>
+        </form>
+
+        <p class="center-text">Don't have an account yet? <a href="signup.html">Sign up here</a></p>
+        <p>login with -</p>
+        <div class="icons">
+            <a href="https://www.facebook.com/"><img src="facebook.png" width="22px" height="22px" decoding="async"></a>
+            <a href="https://accounts.google.com/"><img src="gmail.png" width="22px" height="22px" decoding="async"></a>
+            <a href="https://www.instagram.com/"><img src="social.png" width="22px" height="22px" decoding="async"></a>
+            <a href="https://twitter.com/login"><img src="twitter.png" width="22px" height="22px" decoding="async"></a>
+        </div>
+    </div>
+
+    <script>
+        const recentAccountsContainer = document.getElementById('recentAccountsContainer');
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('loginMessage');
+        const demoAdmin = {
+            firstName: 'Josh',
+            lastName: 'Mendoza',
+            username: 'Joshua123',
+            password: 'Joshua12345',
+            role: 'admin',
+            profilePicture: null,
+            coverPhoto: null
+        };
+
+        // Load recent accounts
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user => {
+            const accountDiv = document.createElement('div');
+            accountDiv.classList.add('account');
+            accountDiv.innerHTML = `
+                <img src="${user.profilePicture || 'user.png'}" alt="Profile Picture" width="50" style="border-radius: 50%;" decoding="async">
+                <p>${user.firstName} ${user.lastName}</p>
+            `;
+            accountDiv.addEventListener('click', () => {
+                document.getElementById('loginUsername').value = user.username;
+            });
+            recentAccountsContainer.appendChild(accountDiv);
+        });
+
+        // Handle login
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const enteredUsername = document.getElementById('loginUsername').value.trim();
+            const enteredPassword = document.getElementById('loginPassword').value;
+
+            const isDemoAdmin = enteredUsername === demoAdmin.username && enteredPassword === demoAdmin.password;
+            const user = isDemoAdmin
+                ? demoAdmin
+                : users.find(u => u.username === enteredUsername && u.password === enteredPassword);
+
+            if (user) {
+                loginMessage.textContent = 'Login successful. Opening your dashboard...';
+                loginMessage.dataset.state = 'success';
+                loginMessage.hidden = false;
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                const requestedDestination = new URLSearchParams(window.location.search).get('returnTo');
+                const allowedDestinations = ['shop.html', 'checkout.html', 'dashboard.html'];
+                setTimeout(() => {
+                    window.location.href = allowedDestinations.includes(requestedDestination)
+                        ? requestedDestination
+                        : 'dashboard.html';
+                }, 450);
+            } else {
+                loginMessage.textContent = 'Username or password is incorrect. Please try again.';
+                loginMessage.dataset.state = 'error';
+                loginMessage.hidden = false;
+            }
+        });
+    </script>
+    <script src="cybex-motion.js" defer></script>
+</body>
+</html>

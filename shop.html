@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CybexIcon.png" type="image/x-icon">
+    <title>Shop | Cybexhark</title>
+    <link rel="stylesheet" href="styleshop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+</head>
+<body>
+
+    <div class="main">
+        <header class="responsive-site-header">
+            <nav class="responsive-site-nav" aria-label="Main navigation">
+                <a class="dashboard-brand" href="index.html" aria-label="Cybexhark home">
+                    <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                    <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+                </a>
+                <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                <div class="site-menu" id="site-menu" aria-label="Site pages">
+                    <button class="site-menu-close" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                    <a class="dashboard-brand site-menu-brand" href="index.html" aria-label="Cybexhark home">
+                        <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                        <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+                    </a>
+                    <h2 class="site-menu-title">Menu</h2>
+                    <ul class="site-menu-links">
+                        <li><a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i>HOME</a></li><li><a href="about.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>ABOUT</a></li>
+                        <li><a href="service.html"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i>SERVICE</a></li><li><a href="shop.html" aria-current="page"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>SHOP</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i>CONTACT</a></li><li><a href="faq.html"><i class="fa-solid fa-circle-question" aria-hidden="true"></i>FAQ</a></li>
+                        <li><a href="organizational-chart.html"><i class="fa-solid fa-sitemap" aria-hidden="true"></i>ORG CHART</a></li>
+                        <li><a href="profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i>PROFILE</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>DASHBOARD</a></li>
+                    </ul>
+                </div>
+                <button class="site-menu-backdrop" type="button" aria-label="Close navigation menu" hidden></button>
+            </nav>
+        </header>
+
+        <div class="content">
+            <section class="shop-intro">
+                <p class="shop-eyebrow">BUILT FOR YOUR NEXT REP</p>
+                <h1>Gear up. Get stronger.</h1>
+                <p>Training essentials and performance favorites, selected for your goals.</p>
+            </section>
+
+            <section class="shop-categories" aria-label="Product categories">
+                <div class="category-heading">
+                    <h2>Shop by category</h2>
+                    <p id="category-result-count" aria-live="polite">Showing all 8 products</p>
+                </div>
+                <div class="category-filters" role="group" aria-label="Filter products">
+                    <button class="category-filter is-active" type="button" data-category="all" aria-pressed="true">All products</button>
+                    <button class="category-filter" type="button" data-category="supplements" aria-pressed="false">Supplements</button>
+                    <button class="category-filter" type="button" data-category="equipment" aria-pressed="false">Gym equipment</button>
+                </div>
+            </section>
+
+            <div class="listProduct">
+                <div class="product-card" data-category="equipment">
+                    <img src="straps.jpg" alt="Lifting wrist straps" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Lifting Wrist Straps</h3>
+                        <p class="product-promo">-20% OFF SALE</p>
+                        <del>$25.00</del>
+                        <p class="current-price">$20.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="equipment">
+                    <img src="belt.jpg" alt="Jet black lever belt" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Jet Black Lever Belt</h3>
+                        <p class="product-promo">With Free 1 Bag</p>
+                        <p class="current-price">$50.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="equipment">
+                    <img src="Splay Nylon Speed Rope 10 Foot - Purple _ 10 Foot.jpg" alt="Purple nylon speed rope" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Splay Nylon Speed Rope</h3>
+                        <p class="product-promo">With FREEBIES</p>
+                        <p class="current-price">$12.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="supplements">
+                    <img src="Whey Protein.jpg" alt="Whey protein powder" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Whey Protein Powder</h3>
+                        <p class="product-promo">-25% OFF SALE</p>
+                        <del>$65.99</del>
+                        <p class="current-price">$55.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                             
+                <div class="product-card" data-category="supplement">
+                    <img src="euphoria.png" alt="Euphoria pre-workout" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Euphoria Pre-Workout</h3>
+                        <p class="product-promo">FREE SHAKER</p>
+                        <p class="current-price">$59.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="supplement">
+                    <img src="creatine.jpg" alt="Creatine monohydrate" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Creatine Monohydrate</h3>
+                        <p class="product-promo">FREE SHAKER / -15% OFF SALE</p>
+                        <del>$72.99</del>
+                        <p class="current-price">$69.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="equipment">
+                    <img src="dumbell.jpg" alt="10 kilogram dumbbell" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Dumbbells (10KG)</h3>
+                        <p class="product-promo">Buy 1 Take 1</p>
+                        <p class="current-price">$20.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="equipment">
+                    <img src="david.jpg" alt="Compression T-shirt" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Compression T-shirt</h3>
+                        <p class="product-promo">Buy 1 Take 2</p>
+                        <p class="current-price">$25.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="equipment">
+                    <img src="Bench.jpg" alt="Lifting wrist straps" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Bench Press Machine</h3>
+                        <p class="product-promo">-10% OFF SALE</p>
+                        <del>$1500</del>
+                        <p class="current-price">$1099.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="equipment">
+                    <img src="shoulder.jpg" alt="Lifting wrist straps" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Shoulder Press Machine</h3>
+                        <p class="product-promo">-10% OFF SALE</p>
+                        <del>$1499.00</del>
+                        <p class="current-price">$1199.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="equipment">
+                    <img src="Squat.jpg" alt="Lifting wrist straps" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Squat Rack</h3>
+                        <p class="product-promo">-10% OFF SALE</p>
+                        <del>$1099.00</del>
+                        <p class="current-price">$999.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="equipment">
+                    <img src="Lats.jpg" alt="Lifting wrist straps" loading="lazy" decoding="async">
+                    <div class="product-info">
+                        <h3>Lat Pulldown Machine</h3>
+                        <p class="product-promo">-10% OFF SALE</p>
+                        <del>$1599.00</del>
+                        <p class="current-price">$1399.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- More products as needed -->
+            </div>
+
+        </div>
+    </div>
+    <button id="view-cart" type="button" aria-label="Open your shopping cart">
+        <img src="shopping-cart.png" alt="" width="30" height="30" decoding="async">
+        <span id="cart-count" class="cart-badge" aria-live="polite">0</span>
+    </button>
+    <footer class="shop-footer">&copy; Copyright - Cybexhark 2025</footer>
+    <script src="shop.js" defer></script>
+    <script src="cybex-navigation.js" defer></script>
+    <script src="cybex-motion.js" defer></script>
+</body>
+</html>

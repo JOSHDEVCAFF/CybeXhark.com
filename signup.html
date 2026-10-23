@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CybexIcon.png">
+    <title>Cybexhark - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            background: linear-gradient(Darkred, rgba(0, 0, 0, 0.932));
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            margin-top: 15%;
+        }
+         body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(8,8,8,.97),
+                    rgba(8,8,8,.88)),
+                url('gym.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle,
+                rgba(150,0,20,.16),
+                transparent 70%);
+            top: 10%;
+            left: -250px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row-reverse; /* Horizontal layout */
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px; /* Wider container for horizontal layout */
+            background: linear-gradient(Darkred, black);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.829);
+            transition: 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.616);
+            transform: translateY(-5px);
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .left-section h1 {
+            font-size: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px #220000;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .left-section p {
+            color: rgba(243, 212, 212, 0.712);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: rgba(233, 110, 110, 0.658);
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], input[type="date"], input[type="email"], select {
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #c400005d;
+            background-color: #ffdfdf;
+            border-radius: 5px;
+            width: 90%; /* Adjusted width to 90% */
+            margin: 0 auto; /* Center align inputs */
+            display: block; /* Ensure block-level alignment */
+        }
+
+        button[type="submit"] {
+            padding: 10px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 90%; /* Adjusted width to 90% */
+            margin: 0 auto; /* Center align button */
+            display: block; /* Ensure block-level alignment */
+        }
+
+        button[type="submit"]:hover {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        .center-text {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .center-text a {
+            color: darkred;
+            text-decoration: none;
+        }
+
+        .center-text a:hover {
+            color: rgba(255, 255, 255, 0.445);
+        }
+        .left-section h1{
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('gym.jpg');
+            font-size: 40px;
+            border-radius: 10px;
+        }
+
+        /* Responsive authentication page styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            height: auto;
+            margin: 0;
+            padding: 32px 18px;
+            color: #f5f5f5;
+            background:
+                linear-gradient(135deg, rgba(8, 9, 11, 0.96), rgba(35, 10, 12, 0.9)),
+                url("gym.jpg") center / cover fixed;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .container {
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: stretch;
+            gap: clamp(24px, 5vw, 56px);
+            width: min(100%, 980px);
+            max-width: 980px;
+            margin: auto;
+            padding: clamp(24px, 4vw, 42px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            background: rgba(18, 19, 22, 0.95);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(14px);
+        }
+
+        .container:hover {
+            transform: none;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .left-section,
+        .right-section {
+            min-width: 0;
+            padding: 0;
+        }
+
+        .left-section {
+            display: flex;
+            flex: 0 1 42%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .left-section h1 {
+            width: 100%;
+            margin: 0 0 12px;
+            padding: 12px 8px;
+            border-radius: 9px;
+            background:
+                linear-gradient(90deg, rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.4)),
+                url("gym.jpg") center 45% / cover;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: clamp(30px, 4vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.06em;
+        }
+
+        .left-section p {
+            max-width: 360px;
+            margin: 10px 0 18px;
+            color: #c4c7cc;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .left-section img {
+            display: block;
+            width: min(100%, 320px) !important;
+            height: auto !important;
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px !important;
+            object-fit: cover;
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+        }
+
+        .right-section {
+            flex: 1 1 58%;
+        }
+
+        h2 {
+            margin: 0 0 24px;
+            font-size: 27px;
+            letter-spacing: -0.04em;
+        }
+
+        form {
+            gap: 8px;
+        }
+
+        label {
+            margin-top: 5px;
+            color: #e5a0a0;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="email"],
+        select {
+            display: block;
+            width: 100%;
+            min-height: 44px;
+            margin: 0;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            outline: none;
+            background: #24262b;
+            color: #fff;
+            font: inherit;
+            font-size: 14px;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        input[type="date"] {
+            color-scheme: dark;
+        }
+
+        select option {
+            background: #24262b;
+            color: #fff;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #ef3434;
+            box-shadow: 0 0 0 3px rgba(239, 52, 52, 0.16);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            min-height: 48px;
+            margin: 12px 0 0;
+            border-radius: 8px;
+            background: #e42e34;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-1px);
+            background: #c82028;
+            color: #fff;
+        }
+
+        .center-text {
+            margin-top: 18px;
+            color: #c4c7cc;
+            line-height: 1.6;
+        }
+
+        .center-text a {
+            color: #ff6969;
+            font-weight: 700;
+        }
+
+        .center-text a:hover {
+            color: #fff;
+        }
+
+        .auth-message {
+            margin: 0;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #e5e7eb;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .auth-message[data-state="error"] {
+            border-color: rgba(255, 105, 105, 0.5);
+            background: rgba(239, 52, 52, 0.12);
+            color: #ffb4b4;
+        }
+
+        .auth-message[data-state="success"] {
+            border-color: rgba(74, 222, 128, 0.4);
+            background: rgba(34, 197, 94, 0.1);
+            color: #bbf7d0;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 14px;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 28px;
+                width: min(100%, 520px);
+                padding: clamp(20px, 6vw, 32px);
+            }
+
+            .left-section {
+                flex: none;
+            }
+
+            .left-section img {
+                width: min(100%, 240px) !important;
+            }
+
+            .left-section p:last-child {
+                margin-bottom: 0;
+            }
+
+            .right-section {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 380px) {
+            body {
+                padding: 14px 10px;
+            }
+
+            .container {
+                padding: 20px 16px;
+            }
+
+            h2 {
+                margin-bottom: 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cybex-theme.css">
+</head>
+<body class="auth-page">
+    <div class="container">
+        <div class="left-section">
+            <a class="dashboard-brand auth-brand" href="index.html" aria-label="Cybexhark home">
+                <span class="dashboard-brand-mark" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></span>
+                <span class="dashboard-brand-wordmark"><span class="dashboard-brand-name">CYBE<span>X</span>HARK</span><small>TRAIN WITH PURPOSE</small></span>
+            </a>
+            <p>Join us today and power your fitness journey with Cybexhark!</p>
+            <img src="euphoria.png" width="250px" height="250px" style="border-radius: 10px;" decoding="async">
+            <p>Euphoria David's pre-workout, The best pre-workout.</p>
+        </div>
+        <div class="right-section">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <p class="auth-message" id="signupMessage" role="status" aria-live="polite" hidden></p>
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required>
+
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" required>
+
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" required>
+
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" required>
+
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+
+                <label for="birthday">Birthday</label>
+                <input type="date" id="birthday" required>
+
+                <button type="submit" id="signupButton">Sign Up</button>
+            </form>
+            <p class="center-text">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('signupForm');
+        const password = document.getElementById('signupPassword');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const signupMessage = document.getElementById('signupMessage');
+
+        function showSignupMessage(message, state) {
+            signupMessage.textContent = message;
+            signupMessage.dataset.state = state;
+            signupMessage.hidden = false;
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Password validation
+            if (password.value !== confirmPassword.value) {
+                showSignupMessage('Passwords do not match. Please check them and try again.', 'error');
+                return;
+            }
+
+            if (password.value.length < 6) {
+                showSignupMessage('Your password must be at least 6 characters long.', 'error');
+                return;
+            }
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('signupEmail').value;
+            const username = document.getElementById('signupUsername').value;
+            const userPassword = password.value;
+            // Store user credentials in localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            if (users.some(user => user.username === username)) {
+                showSignupMessage('That username is already taken. Please choose another.', 'error');
+                return;
+            }
+            users.push({
+                firstName,
+                lastName,
+                email,
+                username,
+                password: userPassword,
+                role: 'customer',
+                profilePicture: null,
+                coverPhoto: null,
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            showSignupMessage('Your account was created. Redirecting you to login...', 'success');
+
+            // Redirect to login after a short delay
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 1500);
+        });
+    </script>
+    <script src="cybex-motion.js" defer></script>
+</body>
+</html>

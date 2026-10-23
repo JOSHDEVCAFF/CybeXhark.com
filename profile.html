@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+  <link rel="icon" href="J.png" type="image/png" />
+  <title>Joshua Mendoza — Front-End Developer</title>
+  <meta name="description" content="Explore the portfolio of Joshua Mendoza, a front-end developer building responsive, user-friendly web experiences.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css">
+  <meta name="theme-color" content="#6758e8">
+</head>
+<body>
+  <aside class="profile-sidebar" id="site-sidebar" aria-label="Profile navigation">
+    <div class="sidebar-top">
+      <a class="sidebar-brand" href="#hero" aria-label="Joshua Mendoza home">
+        <span class="sidebar-brand-mark" aria-hidden="true">J</span>
+        <span class="sidebar-brand-copy"><strong>JOSHUA<span>.</span></strong><small>FRONT-END DEVELOPER</small></span>
+      </a>
+      <button id="sidebar-collapse-btn" class="sidebar-collapse-btn" type="button" aria-controls="navbar" aria-expanded="true" aria-label="Collapse sidebar" title="Collapse sidebar">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+    <p class="sidebar-label">PORTFOLIO</p>
+    <nav id="navbar" class="nav" aria-label="Primary">
+      <a href="#hero"><span class="nav-icon" aria-hidden="true">⌂</span><span class="nav-label">Home</span></a>
+      <a href="#about"><span class="nav-icon" aria-hidden="true">◉</span><span class="nav-label">About</span></a>
+      <a href="#projects"><span class="nav-icon" aria-hidden="true">▦</span><span class="nav-label">Projects</span></a>
+      <a href="#approach"><span class="nav-icon" aria-hidden="true">↗</span><span class="nav-label">Approach</span></a>
+      <a href="#skills"><span class="nav-icon" aria-hidden="true">✳</span><span class="nav-label">Skills</span></a>
+      <a href="#education"><span class="nav-icon" aria-hidden="true">▤</span><span class="nav-label">Education</span></a>
+      <a href="#contact"><span class="nav-icon" aria-hidden="true">✉</span><span class="nav-label">Contact</span></a>
+      <a class="sidebar-home-link" href="index.html"><span class="nav-icon" aria-hidden="true">←</span><span class="nav-label">Cybexhark</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="sidebar-status" aria-hidden="true"></span>
+      <span class="sidebar-label-text">Available for collaboration</span>
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="icon-sun" aria-hidden="true">☀️</span>
+        <span class="icon-moon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </aside>
+  <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation" hidden></button>
+
+  <div id="page-wrap">
+    <div class="mobile-topbar">
+      <a class="mobile-brand" href="#hero">JOSHUA<span>.</span></a>
+      <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" type="button" aria-controls="site-sidebar" aria-expanded="false" aria-label="Open menu">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main id="main-content">
+      <section id="hero" class="hero section">
+        <div class="container hero-card reveal">
+          <div class="hero-left">
+            <p class="hero-kicker"><span aria-hidden="true"></span> FRONT-END DEVELOPER</p>
+            <h1 class="hero-title">Hi, I’m <span>Joshua Mendoza.</span></h1>
+            <p class="hero-sub">I blend design, code, and AI to create smart, responsive web experiences that are easy to use.</p>
+            <div class="hero-ctas">
+              <a class="btn primary" href="#projects">Explore my work <span aria-hidden="true">→</span></a>
+              <a class="btn ghost" id="contact-scroll" href="#contact">Let’s connect</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-visual">
+              <img src="Joshua.png" width="554" height="554" alt="Joshua Mendoza at the gym" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container about-grid">
+          <div class="about-photo">
+            <img src="Joshua.png" width="554" height="554" alt="Joshua Mendoza">
+          </div>
+          <!-- add reveal to about text -->
+          <div class="about-text reveal">
+            <h2>About Me</h2>
+            <p>I’m a Front‑End Developer who enjoys creating responsive websites, solving coding errors, and improving user experience. I love building clean, functional, and creative designs.</p>
+            <p>Available for freelance and collaboration — I love solving UI challenges and shipping simple, maintainable solutions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <article class="project-card reveal" tabindex="0">
+              <div class="project-thumb project-thumb-notes" aria-hidden="true">
+                <span class="preview-kicker">AI PLATFORM GUIDE</span>
+                <span class="preview-title">NEURO<span>NOTES</span></span>
+                <span class="preview-tags"><span>ChatGPT</span><span>Gemini</span><span>DeepSeek</span></span>
+              </div>
+              <div class="project-content">
+                <h3>NEURONOTES</h3>
+                <p class="muted">A website I made to show different AI platforms like ChatGPT, DeepSeek, and Gemini. It explains what each AI does in an easy-to-read and organized design.</p>
+                <div class="project-meta">
+                  <div class="badges">
+                    <span class="badge">HTML</span>
+                    <span class="badge">CSS</span>
+                    <span class="badge">JavaScript</span>
+                  </div>
+                  <div class="actions">
+                    <a class="btn small" href="https://joshdevcaff.github.io/NueroNotes/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+                    <a class="btn small ghost" href="https://github.com/JOSHDEVCAFF/NueroNotes" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card reveal" tabindex="0">
+              <div class="project-thumb project-thumb-yoshuai" aria-hidden="true">
+                <span class="preview-kicker">YOUR AI ASSISTANT</span>
+                <span class="preview-title">YOSHUA<span>AI</span></span>
+                <span class="preview-chat"><span></span><span></span><span></span></span>
+              </div>
+              <div class="project-content">
+                <h3>YOSHUAI</h3>
+                <p class="muted">A simple and modern AI chatbot I designed with a clean layout and custom logo. It lets users chat easily in a smooth and futuristic interface.</p>
+                <div class="project-meta">
+                  <div class="badges">
+                    <span class="badge">HTML</span>
+                    <span class="badge">CSS</span>
+                    <span class="badge">JavaScript</span>
+                  </div>
+                  <div class="actions">
+                    <a class="btn small" href="https://joshdevcaff.github.io/YoshuaBot/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+                    <a class="btn small ghost" href="https://github.com/JOSHDEVCAFF/yoshuAInew" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card reveal" tabindex="0">
+              <div class="project-thumb project-thumb-faith" aria-hidden="true">
+                <span class="preview-kicker">FAITH · STYLE · PURPOSE</span>
+                <span class="preview-title">I LOVE<br><span>JESUS.</span></span>
+                <span class="preview-tags"><span>SHOP</span><span>NEW COLLECTION</span></span>
+              </div>
+              <div class="project-content">
+                <h3>I LOVE JESUS.</h3>
+                <p class="muted">An online Christian clothing store that spreads the gospel through fashion. The site features a clean layout with easy navigation for shopping shirts, hoodies, and accessories.</p>
+                <div class="project-meta">
+                  <div class="badges">
+                    <span class="badge">HTML</span>
+                    <span class="badge">CSS</span>
+                    <span class="badge">JavaScript</span>
+                  </div>
+                  <div class="actions">
+                    <a class="btn small" href="https://jesusinthestreet.com/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+                    <span class="btn small unavailable" aria-label="Source code not available">Source unavailable</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Approach: how we plan with clients -->
+      <section id="approach" class="section approach">
+        <div class="container">
+          <h2 class="section-title">My approach</h2>
+
+          <div class="approach-grid">
+            <article class="approach-card reveal approach-primary" tabindex="0" aria-labelledby="approach-1-title">
+              <div class="approach-inner">
+                <h3 id="approach-1-title">Planning & Strategy</h3>
+                <p class="muted">We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements.</p>
+                <div class="approach-cta"><span class="phase-pill">Phase 1</span></div>
+              </div>
+            </article>
+
+            <article class="approach-card reveal approach-secondary" tabindex="0" aria-labelledby="approach-2-title">
+              <div class="approach-inner">
+                <h3 id="approach-2-title">Design & Prototyping</h3>
+                <p class="muted" style="color: white;">Create wireframes and visual designs, iterate with feedback, and build interactive prototypes to validate UX before development.</p>
+                <div class="approach-cta"><span class="phase-pill">Phase 2</span></div>
+              </div>
+            </article>
+
+            <article class="approach-card reveal approach-melee" tabindex="0" aria-labelledby="approach-3-title">
+              <div class="approach-inner">
+                <h3 id="approach-3-title">Build & Launch</h3>
+                <p class="muted" style="color: white;">Develop responsive, accessible code, test across devices, optimise performance, and deploy — followed by monitoring and maintenance.</p>
+                <div class="approach-cta"><span class="phase-pill">Phase 3</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education: new minimal section you can expand later -->
+      <section id="education" class="section education">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="education-list">
+            <div class="education-item reveal">
+              <h3>Mandaue City College</h3>
+              <p class="muted">B.S. in Information Technology — 2nd Year College | Currently Enrolled</p>
+            </div>
+            <div class="education-item reveal">
+              <h3>ACLC College of Mandaue</h3>
+              <p class="muted">Graduate of the ICT-TVL Programming Strand | 2025</p>
+            </div>
+            <div class="education-item reveal">
+              <h3>Tabok National High School</h3>
+              <p class="muted">Graduated | 2023</p>
+            </div>
+            <div class="education-item reveal">
+              <h3>Basak Elementary School</h3>
+              <p class="muted">Graduated | 2019</p>
+            </div>
+          </div>
+          </div>
+        
+      </section>
+
+      <section id="skills" class="section skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <p class="muted">Primary tools and technologies I use</p>
+
+          <!-- concise skills list (centered) -->
+          <div class="skills-list reveal">
+            <ul class="skills-inline">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Responsive design</li>
+              <li>Problem solving</li>
+              <li>Debugging</li>
+              <li>UI design</li>
+            </ul>
+          </div>
+
+          <!-- keep progress bars (animated) -->
+          <div class="skills-grid">
+            <div class="skill reveal">
+              <div class="skill-head">
+                <div class="skill-name">HTML</div>
+                <div class="skill-percent">95%</div>
+              </div>
+              <div class="skill-bar"><div class="skill-fill skill-html" data-percent="95"></div></div>
+            </div>
+
+            <div class="skill reveal">
+              <div class="skill-head">
+                <div class="skill-name">CSS</div>
+                <div class="skill-percent">90%</div>
+              </div>
+              <div class="skill-bar"><div class="skill-fill skill-css" data-percent="90"></div></div>
+            </div>
+
+            <div class="skill reveal">
+              <div class="skill-head">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-percent">88%</div>
+              </div>
+              <div class="skill-bar"><div class="skill-fill skill-js" data-percent="88"></div></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container contact-grid">
+          <!-- LEFT: contact details with large circular icons -->
+            <div class="contact-left reveal">
+            <h2 class="section-title">Let's Talk</h2>
+            <p class="muted">Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to discussing new ideas and opportunities.</p>
+
+            <div class="contact-items">
+              <div class="contact-item">
+              <span class="contact-icon phone" aria-hidden="true">📞</span>
+              <div class="contact-info">
+                <strong>Phone</strong>
+                <a class="muted contact-link" href="tel:+639928784685">0992-878-4685</a>
+              </div>
+              </div>
+
+              <div class="contact-item">
+              <span class="contact-icon email" aria-hidden="true">✉️</span>
+              <div class="contact-info">
+                <strong>Email</strong>
+                <a class="muted contact-link" href="mailto:joshscz123@gmail.com">joshscz123@gmail.com</a>
+              </div>
+              </div>
+
+              <div class="contact-item">
+              <span class="contact-icon location" aria-hidden="true">📍</span>
+              <div class="contact-info">
+                <strong>Address</strong>
+                <div class="muted">Mandaue City, Philippines</div>
+              </div>
+              </div>
+            </div>
+            <div class="social-boxes" aria-label="Social links">
+              <a class="social-card" href="https://github.com/JOSHDEVCAFF" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <span aria-hidden="true">GH</span>
+              </a>
+
+              <a class="social-card" href="https://www.instagram.com/joshcaffeinated" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+              <span aria-hidden="true">IG</span>
+              </a>
+
+              <a class="social-card" href="https://www.facebook.com/JoshCaffdial" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+              <span aria-hidden="true">FB</span>
+              </a>
+            </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Contact CTA: large hero + two-card grid -->
+      <section id="contact-cta" class="section contact-cta">
+        <div class="container">
+          <div class="cta-hero reveal">
+            <h2 class="cta-title">Ready to take your digital presence to the next level?</h2>
+            <p class="cta-sub muted">Reach out to me today and let's discuss how I can help you achieve your goals.</p>
+            <div class="cta-actions">
+              <button class="btn cta-btn" id="cta-scroll-btn" type="button">Let's get in touch!</button>
+            </div>
+          </div>
+
+          <div class="cta-grid reveal" aria-hidden="false">
+            <div class="cta-card cta-card--left">
+              <h3>Let’s bring your vision to life with code that works beautifully</h3>
+              <p class="muted">Fast, maintainable, and accessible front-end development. I craft UIs that look great and perform even better.</p>
+              <div style="margin-top:1rem;">
+                <button class="btn ghost" id="copy-email-btn" type="button">Copy my email address</button>
+              </div>
+            </div>
+
+            <div class="cta-card cta-card--right">
+              <small class="muted">The Inside Scoop</small>
+              <h4>Currently developing a high-performance JavaScript animation library</h4>
+              <div class="cta-code-visual" aria-hidden="true">
+                <!-- decorative code block (pure CSS) -->
+                <pre>// import moduleName from 'modulePath';</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> YOSHUA — Built with HTML • CSS • JS</p>
+      </div>
+    </footer>
+  </div> <!-- end #page-wrap -->
+
+  <script src="profile.js"></script>
+</body>
+</html>
